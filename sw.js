@@ -1,8 +1,8 @@
-const CACHE_NAME = 'exercise-v1';
+const CACHE_NAME = 'exercise-v2';
 const ASSETS = [
     './',
     './index.html',
-    './icon-192.svg',
+    './icon-192.png',
     './manifest.json'
 ];
 
