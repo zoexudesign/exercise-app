@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="每日运动">
+  <meta name="theme-color" content="#2d3436">
+  <title>每日运动提醒</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8f9fa;
+      color: #2d3436;
+      min-height: 100vh;
+      padding: 0 0 40px 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: #ffffff;
+      padding: 48px 24px 32px;
+      text-align: center;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .header .date {
+      font-size: 13px;
+      font-weight: 400;
+      color: #b2bec3;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .header .weekday {
+      font-size: 28px;
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 4px;
+    }
+
+    .header .theme {
+      font-size: 14px;
+      font-weight: 400;
+      color: #636e72;
+    }
+
+    /* Week dots */
+    .week-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px 24px;
+      background: #ffffff;
+    }
+
+    .week-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: #f1f3f4;
+      color: #636e72;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .week-dot.active {
+      background: #2d3436;
+      color: #ffffff;
+      transform: scale(1.1);
+    }
+
+    .week-dot.today {
+      box-shadow: 0 0 0 2px #ffffff, 0 0 0 3.5px #2d3436;
+    }
+
+    .week-dot:hover:not(.active) {
+      background: #e2e6ea;
+    }
+
+    /* Content */
+    .content {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      animation: fadeUp 0.4s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #b2bec3;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .exercise-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f5f6f7;
+    }
+
+    .exercise-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .exercise-item:first-child {
+      padding-top: 0;
+    }
+
+    .exercise-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .exercise-info {
+      flex: 1;
+    }
+
+    .exercise-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #2d3436;
+      margin-bottom: 3px;
+    }
+
+    .exercise-detail {
+      font-size: 13px;
+      color: #b2bec3;
+      line-height: 1.5;
+    }
+
+    .tip-text {
+      font-size: 14px;
+      color: #636e72;
+      line-height: 1.8;
+    }
+
+    .tip-text strong {
+      color: #2d3436;
+      font-weight: 500;
+    }
+
+    .intensity {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: #f8f9fa;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #636e72;
+      margin-top: 8px;
+    }
+
+    .intensity-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00b894;
+    }
+
+    .intensity-dot.medium {
+      background: #fdcb6e;
+    }
+
+    .intensity-dot.high {
+      background: #e17055;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #dfe6e9;
+    }
+
+    /* Guide section */
+    .guide-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .guide-toggle:hover {
+      background: #fafbfc;
+    }
+
+    .guide-toggle-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #636e72;
+    }
+
+    .guide-toggle-arrow {
+      font-size: 14px;
+      color: #b2bec3;
+      transition: transform 0.3s;
+    }
+
+    .guide-toggle-arrow.open {
+      transform: rotate(180deg);
+    }
+
+    .guide-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .guide-content.open {
+      max-height: 600px;
+    }
+
+    .guide-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #f5f6f7;
+    }
+
+    .guide-item:last-child {
+      border-bottom: none;
+    }
+
+    .guide-item-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2d3436;
+      margin-bottom: 4px;
+    }
+
+    .guide-item-text {
+      font-size: 13px;
+      color: #636e72;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="date" id="dateText"></div>
+    <div class="weekday" id="weekdayText"></div>
+    <div class="theme" id="themeText"></div>
+  </div>
+
+  <div class="week-nav" id="weekNav"></div>
+
+  <div class="content" id="content"></div>
+
+  <div class="footer">每日 30 分钟 · 坚持就是胜利</div>
+
+  <script>
+    const PLAN = [
+      {
+        day: '周一',
+        theme: '基础有氧日',
+        subtitle: '针对低密度胆固醇',
+        intensity: 'low',
+        exercises: [
+          { icon: '🚴', name: '动感单车 30 分钟', detail: '保持匀速骑行，阻力调至中等' }
+        ],
+        requirement: '呼吸深长，能断续说话但无法唱歌'
+      },
+      {
+        day: '周二',
+        theme: '骨量强化与核心激活日',
+        subtitle: '针对下肢骨量',
+        intensity: 'medium',
+        exercises: [
+          { icon: '🎒', name: '7kg 负重快步走 20 分钟', detail: '背负 7kg 快走' },
+          { icon: '⏫', name: '跳绳 2 分钟', detail: '在塑胶跑道上进行' },
+          { icon: '🔄', name: '组合练习 × 3 组', detail: '壶铃高脚杯深蹲 15 次（抱 6kg 壶铃）+ 平板支撑 45 秒，组间原地踏步 30 秒' }
+        ],
+        requirement: '通过减少休息让心率维持在中等强度，结束时额头应有微汗'
+      },
+      {
+        day: '周三',
+        theme: '中等强度有氧日',
+        subtitle: '针对低密度胆固醇',
+        intensity: 'low',
+        exercises: [
+          { icon: '🚴', name: '动感单车 30 分钟', detail: '中间 10 分钟可稍提高阻力，增加排汗量' }
+        ],
+        requirement: '确保 30 分钟内没有长时间的停顿'
+      },
+      {
+        day: '周四',
+        theme: '综合力量与代谢日',
+        subtitle: '综合力量与有氧',
+        intensity: 'high',
+        exercises: [
+          { icon: '🏋️', name: '农夫行走 1 分钟', detail: '双手各提 6kg 壶铃，室内来回稳步走' },
+          { icon: '⏫', name: '跳绳 2 分钟', detail: '首轮进行，之后循环可跳过' },
+          { icon: '🦵', name: '壶铃高脚杯深蹲 15 次', detail: '双手抱 6kg 壶铃' },
+          { icon: '💪', name: '平板支撑 45 秒', detail: '' },
+          { icon: '🚶', name: '原地踏步 1 分钟', detail: '' }
+        ],
+        requirement: '以上为一个循环，不间断重复至 30 分钟。心率会持续处于中等偏高强度',
+        isCircuit: true
+      },
+      {
+        day: '周五',
+        theme: '持续有氧日',
+        subtitle: '针对低密度胆固醇',
+        intensity: 'low',
+        exercises: [
+          { icon: '🚴', name: '动感单车 30 分钟', detail: '稳定的中等强度输出，作为高强度循环后的调整' }
+        ],
+        requirement: '维持在微喘状态，这是降低 LDL 的核心'
+      },
+      {
+        day: '周六',
+        theme: '负重耐力与背部支持日',
+        subtitle: '针对下肢骨量',
+        intensity: 'medium',
+        exercises: [
+          { icon: '🎒', name: '7kg 负重快步走 20 分钟', detail: '背负 7kg 快走' },
+          { icon: '⏫', name: '跳绳 2 分钟', detail: '在塑胶跑道上进行' },
+          { icon: '🔄', name: '组合练习 × 3 组', detail: '壶铃高脚杯深蹲 15 次（抱 6kg 壶铃）+ 平板支撑 45 秒，组间原地踏步 30 秒' }
+        ],
+        requirement: '感受到后背肌肉微酸但能支撑，心跳明显'
+      },
+      {
+        day: '周日',
+        theme: '动态恢复日',
+        subtitle: '兼顾骨量与代谢',
+        intensity: 'low',
+        exercises: [
+          { icon: '⏫', name: '跳绳 2 分钟', detail: '热身' },
+          { icon: '🦵', name: '壶铃高脚杯深蹲 3 组 × 15 次', detail: '抱 6kg 壶铃，臀部向后坐，膝盖不内扣，组间休息 30 秒' },
+          { icon: '🚴', name: '动感单车 15 分钟', detail: '骑车放松' },
+          { icon: '💪', name: '平板支撑 4 组 × 1 分钟', detail: '组间拉伸背部' }
+        ],
+        requirement: '总运动强度维持在中等即可'
+      }
+    ];
+
+    const GUIDE = [
+      { title: '💡 后背累？先激活核心', text: '周二、周六负重快走前，先做 2 分钟平板支撑或鸟狗式热身，"叫醒"核心肌肉来支撑重量。' },
+      { title: '🦵 深蹲要慢下快起', text: '下蹲时感受臀部发力，起身时收紧核心。不仅刺激下肢骨骼，还能有效提升心率。' },
+      { title: '💪 平板支撑每周 4 次', text: '周二、周四、周六、周日各一次，强化核心的同时留出恢复时间。' },
+      { title: '🚴 加班保底方案', text: '太累做不了复杂训练？直接 30 分钟动感单车，降脂任务最简单的保底方案。' }
+    ];
+
+    const WEEKDAYS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    const DAY_INDEX_MAP = { '周日': 0, '周一': 1, '周二': 2, '周三': 3, '周四': 4, '周五': 5, '周六': 6 };
+    const MONTHS = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+
+    let currentView = null;
+
+    function init() {
+      const now = new Date();
+      const todayIndex = now.getDay(); // 0=Sun
+      const planIndex = todayIndex === 0 ? 6 : todayIndex - 1; // Map to PLAN array (Mon=0)
+      currentView = planIndex;
+
+      // Date text
+      document.getElementById('dateText').textContent =
+        `${now.getFullYear()} 年 ${now.getMonth() + 1} 月 ${now.getDate()} 日`;
+
+      renderWeekNav(todayIndex, planIndex);
+      renderDay(planIndex, todayIndex);
+    }
+
+    function renderWeekNav(todayDayOfWeek, activePlanIndex) {
+      const nav = document.getElementById('weekNav');
+      nav.innerHTML = '';
+      // Show Mon-Sun
+      const order = [1, 2, 3, 4, 5, 6, 0]; // Mon..Sun as day-of-week
+      order.forEach((dow, planIdx) => {
+        const btn = document.createElement('button');
+        btn.className = 'week-dot';
+        btn.textContent = WEEKDAYS[dow].replace('周', '');
+        if (planIdx === activePlanIndex) btn.classList.add('active');
+        if (dow === todayDayOfWeek) btn.classList.add('today');
+        btn.addEventListener('click', () => {
+          currentView = planIdx;
+          document.querySelectorAll('.week-dot').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderDay(planIdx, todayDayOfWeek);
+        });
+        nav.appendChild(btn);
+      });
+    }
+
+    function renderDay(planIndex, todayDayOfWeek) {
+      const plan = PLAN[planIndex];
+      const planDow = planIndex === 6 ? 0 : planIndex + 1;
+      const isToday = planDow === todayDayOfWeek;
+
+      document.getElementById('weekdayText').textContent = isToday ? `今天 · ${plan.day}` : plan.day;
+      document.getElementById('themeText').textContent = plan.theme;
+
+      const content = document.getElementById('content');
+
+      const intensityClass = plan.intensity === 'high' ? 'high' : plan.intensity === 'medium' ? 'medium' : '';
+      const intensityLabel = plan.intensity === 'high' ? '高强度' : plan.intensity === 'medium' ? '中等强度' : '中低强度';
+
+      let html = '';
+
+      // Exercises card
+      html += `<div class="card" style="animation-delay: 0s">`;
+      html += `<div class="card-label">${plan.isCircuit ? '循环训练 · 不间断重复至 30 分钟' : '训练项目'}</div>`;
+      plan.exercises.forEach(ex => {
+        html += `
+      <div class="exercise-item">
+        <div class="exercise-icon">${ex.icon}</div>
+        <div class="exercise-info">
+          <div class="exercise-name">${ex.name}</div>
+          ${ex.detail ? `<div class="exercise-detail">${ex.detail}</div>` : ''}
+        </div>
+      </div>`;
+      });
+      html += `</div>`;
+
+      // Intensity card
+      html += `<div class="card" style="animation-delay: 0.1s">`;
+      html += `<div class="card-label">强度标准</div>`;
+      html += `<div class="tip-text">${plan.requirement}</div>`;
+      html += `<div class="intensity"><span class="intensity-dot ${intensityClass}"></span>${intensityLabel}</div>`;
+      html += `</div>`;
+
+      // Guide (collapsible)
+      html += `
+    <button class="guide-toggle" onclick="toggleGuide()">
+      <span class="guide-toggle-text">📋 执行指南</span>
+      <span class="guide-toggle-arrow" id="guideArrow">▾</span>
+    </button>
+    <div class="guide-content" id="guideContent">
+      <div class="card" style="animation-delay: 0s">`;
+      GUIDE.forEach(g => {
+        html += `
+        <div class="guide-item">
+          <div class="guide-item-title">${g.title}</div>
+          <div class="guide-item-text">${g.text}</div>
+        </div>`;
+      });
+      html += `</div></div>`;
+
+      content.innerHTML = html;
+    }
+
+    function toggleGuide() {
+      const content = document.getElementById('guideContent');
+      const arrow = document.getElementById('guideArrow');
+      content.classList.toggle('open');
+      arrow.classList.toggle('open');
+    }
+
+    init();
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(() => { });
+    }
+  </script>
+</body>
+
+</html>

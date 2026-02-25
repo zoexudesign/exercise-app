@@ -1,0 +1,17 @@
+{
+  "name": "每日运动提醒",
+  "short_name": "每日运动",
+  "description": "每日30分钟运动计划",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#2d3436",
+  "icons": [
+    {
+      "src": "./icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
