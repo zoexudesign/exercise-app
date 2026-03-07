@@ -310,99 +310,95 @@
 
   <div class="content" id="content"></div>
 
-  <div class="footer">每日 30 分钟 · 坚持就是胜利</div>
+  <div class="footer">心肺高海拔训练 · 坚持就是胜利</div>
 
   <script>
     const PLAN = [
       {
         day: '周一',
-        theme: '基础有氧日',
-        subtitle: '针对低密度胆固醇',
+        theme: 'Zone 2 基础有氧',
+        subtitle: '压低基础心率',
         intensity: 'low',
         exercises: [
-          { icon: '🚴', name: '动感单车 30 分钟', detail: '保持匀速骑行，阻力调至中等' }
+          { icon: '🚴', name: '动感单车 30-45 分钟', detail: '心率控制在 120-130，保持匀速骑行' }
         ],
-        requirement: '呼吸深长，能断续说话但无法唱歌'
+        requirement: '压低基础心率：心率控制在 120-130。解决平时走路就 100+ 的问题，夯实有氧底座。'
       },
       {
         day: '周二',
-        theme: '骨量强化与核心激活日',
-        subtitle: '针对下肢骨量',
+        theme: '负重与核心激活',
+        subtitle: '模拟负重登山',
         intensity: 'medium',
         exercises: [
-          { icon: '🎒', name: '7kg 负重快步走 20 分钟', detail: '背负 7kg 快走' },
-          { icon: '⏫', name: '跳绳 2 分钟', detail: '在塑胶跑道上进行' },
-          { icon: '🔄', name: '组合练习 × 3 组', detail: '壶铃高脚杯深蹲 15 次（抱 6kg 壶铃）+ 平板支撑 45 秒，组间原地踏步 30 秒' }
+          { icon: '🎒', name: '7kg 负重快走 20 分钟', detail: '全程使用腹式呼吸，背负 7kg 快走' },
+          { icon: '🔄', name: '组合练习', detail: '壶铃高脚杯深蹲 + 平板支撑，利用核心激活减少后背负担' }
         ],
-        requirement: '通过减少休息让心率维持在中等强度，结束时额头应有微汗'
+        requirement: '模拟负重登山：负重走时全程使用腹式呼吸。利用核心激活（平板支撑）减少后背负担。'
       },
       {
         day: '周三',
-        theme: '中等强度有氧日',
-        subtitle: '针对低密度胆固醇',
-        intensity: 'low',
+        theme: '4×4 引擎扩容日',
+        subtitle: '冲击最大摄氧量',
+        intensity: 'high',
         exercises: [
-          { icon: '🚴', name: '动感单车 30 分钟', detail: '中间 10 分钟可稍提高阻力，增加排汗量' }
+          { icon: '🔥', name: '动感单车间歇 × 4 组', detail: '4 分钟高阻力冲刺（心率 160+）+ 3 分钟轻踩恢复' }
         ],
-        requirement: '确保 30 分钟内没有长时间的停顿'
+        requirement: '冲击摄氧上限：4min 高阻力冲刺（心率 160+）+ 3min 轻踩恢复，重复 4 组。利用恢复快的优势。'
       },
       {
         day: '周四',
-        theme: '综合力量与代谢日',
-        subtitle: '综合力量与有氧',
+        theme: '综合代谢与耐力',
+        subtitle: '抗乳酸训练',
         intensity: 'high',
         exercises: [
           { icon: '🏋️', name: '农夫行走 1 分钟', detail: '双手各提 6kg 壶铃，室内来回稳步走' },
-          { icon: '⏫', name: '跳绳 2 分钟', detail: '首轮进行，之后循环可跳过' },
           { icon: '🦵', name: '壶铃高脚杯深蹲 15 次', detail: '双手抱 6kg 壶铃' },
           { icon: '💪', name: '平板支撑 45 秒', detail: '' },
           { icon: '🚶', name: '原地踏步 1 分钟', detail: '' }
         ],
-        requirement: '以上为一个循环，不间断重复至 30 分钟。心率会持续处于中等偏高强度',
+        requirement: '抗乳酸训练：在深蹲和农夫行走间歇，不休息直接进入下一步，模拟高原连续行走的疲劳感。',
         isCircuit: true
       },
       {
         day: '周五',
-        theme: '持续有氧日',
-        subtitle: '针对低密度胆固醇',
+        theme: 'Zone 2 稳态输出',
+        subtitle: '呼吸节奏固化',
         intensity: 'low',
         exercises: [
-          { icon: '🚴', name: '动感单车 30 分钟', detail: '稳定的中等强度输出，作为高强度循环后的调整' }
+          { icon: '🚴', name: '动感单车 30-45 分钟', detail: '稳定中等强度输出，练习"吸 2 呼 4"呼吸节奏' }
         ],
-        requirement: '维持在微喘状态，这是降低 LDL 的核心'
+        requirement: '呼吸节奏固化：在稳定的中等强度下，练习"吸 2 呼 4"节奏，把技巧变成肌肉记忆。'
       },
       {
         day: '周六',
-        theme: '负重耐力与背部支持日',
-        subtitle: '针对下肢骨量',
+        theme: '模拟实战与强骨',
+        subtitle: '坡度适应',
         intensity: 'medium',
         exercises: [
-          { icon: '🎒', name: '7kg 负重快步走 20 分钟', detail: '背负 7kg 快走' },
-          { icon: '⏫', name: '跳绳 2 分钟', detail: '在塑胶跑道上进行' },
-          { icon: '🔄', name: '组合练习 × 3 组', detail: '壶铃高脚杯深蹲 15 次（抱 6kg 壶铃）+ 平板支撑 45 秒，组间原地踏步 30 秒' }
+          { icon: '🎒', name: '7kg 负重走 20 分钟', detail: '条件允许改为爬坡' },
+          { icon: '🔄', name: '组合练习', detail: '壶铃高脚杯深蹲 + 平板支撑，组间原地踏步' }
         ],
-        requirement: '感受到后背肌肉微酸但能支撑，心跳明显'
+        requirement: '坡度适应：如果条件允许，将负重走改为爬坡。心率飙到 160 后，停下测试 5 分钟内能否恢复。'
       },
       {
         day: '周日',
-        theme: '动态恢复日',
-        subtitle: '兼顾骨量与代谢',
+        theme: '动态恢复与拉伸',
+        subtitle: '肺部减压',
         intensity: 'low',
         exercises: [
-          { icon: '⏫', name: '跳绳 2 分钟', detail: '热身' },
-          { icon: '🦵', name: '壶铃高脚杯深蹲 3 组 × 15 次', detail: '抱 6kg 壶铃，臀部向后坐，膝盖不内扣，组间休息 30 秒' },
-          { icon: '🚴', name: '动感单车 15 分钟', detail: '骑车放松' },
-          { icon: '💪', name: '平板支撑 4 组 × 1 分钟', detail: '组间拉伸背部' }
+          { icon: '🚴', name: '动感单车 15 分钟', detail: '轻松骑行放松' },
+          { icon: '💪', name: '平板支撑 4 组 × 1 分钟', detail: '组间拉伸背部，强化核心' }
         ],
-        requirement: '总运动强度维持在中等即可'
+        requirement: '肺部减压：重点通过平板支撑强化核心，减轻在高原因为呼吸急促导致的胸廓疲劳。'
       }
     ];
 
     const GUIDE = [
-      { title: '💡 后背累？先激活核心', text: '周二、周六负重快走前，先做 2 分钟平板支撑或鸟狗式热身，"叫醒"核心肌肉来支撑重量。' },
-      { title: '🦵 深蹲要慢下快起', text: '下蹲时感受臀部发力，起身时收紧核心。不仅刺激下肢骨骼，还能有效提升心率。' },
-      { title: '💪 平板支撑每周 4 次', text: '周二、周四、周六、周日各一次，强化核心的同时留出恢复时间。' },
-      { title: '🚴 加班保底方案', text: '太累做不了复杂训练？直接 30 分钟动感单车，降脂任务最简单的保底方案。' }
+      { title: '🫁 腹式呼吸是核心', text: '负重走和平板支撑时全程使用腹式呼吸。这是高原适应的基础，务必形成肌肉记忆。' },
+      { title: '❤️ 心率是指南针', text: 'Zone 2 日控制 120-130，间歇日冲刺 160+。没有心率表时，Zone 2 = 能说话不能唱歌。' },
+      { title: '🔥 4×4 间歇别打折', text: '周三的 4 分钟冲刺必须全力，这是拉升最大摄氧量的关键训练，3 分钟恢复要踩到底。' },
+      { title: '🏔️ 恢复能力 = 高原能力', text: '周六做心率恢复测试：冲到 160 后停下，5 分钟内能降到 100 以下说明心肺进步了。' },
+      { title: '🚴 加班保底方案', text: '太累做不了复杂训练？直接 30-45 分钟动感单车 Zone 2，有氧底座是一切的基础。' }
     ];
 
     const WEEKDAYS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
