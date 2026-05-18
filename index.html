@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="腰骶保护训练">
+  <meta name="apple-mobile-web-app-title" content="登山器械训练">
   <meta name="theme-color" content="#2d3436">
-  <title>腰骶保护训练提醒</title>
+  <title>登山器械训练提醒</title>
   <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" href="./icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -306,106 +306,113 @@
 
   <div class="content" id="content"></div>
 
-  <div class="footer">腰骶保护期 · 器械优先 · 稳定胜过强度</div>
+  <div class="footer">登山专项 · 器械增肌 · 腰骶保护</div>
 
   <script>
     const PLAN = [
       {
         day: '周一',
-        theme: '腰骶保护启动',
-        subtitle: '低冲击唤醒',
+        theme: '停训观察',
+        subtitle: '左侧腰窝疼痛后第 1 天',
         intensity: 'low',
         exercises: [
-          { icon: '🚲', name: '靠背车或动感单车 8 分钟', detail: '低阻力热身，骨盆稳定，不追心率' },
-          { icon: '🦵', name: '腿举机 2 组 × 12 次', detail: '轻重量、短行程，腰背贴稳靠垫' },
-          { icon: '🔁', name: '坐姿腿弯举 2 组 × 12 次', detail: '动作慢，避免借力挺腰' },
-          { icon: '🧘', name: '髋外展机 2 组 × 12 次', detail: '唤醒臀中肌，组间休息 60-90 秒' }
+          { icon: '⏸️', name: '停止健身房训练', detail: '不做器械、不做坡度走，不测试疼痛' },
+          { icon: '🚶', name: '舒适平地步行 5-15 分钟（可选）', detail: '只为活动身体，疼痛增加就停止' },
+          { icon: '🫁', name: '90/90 收肋呼吸 3-5 分钟', detail: '慢呼气收下肋，腰背轻轻放松，不用力压腰' },
+          { icon: '📝', name: '疼痛记录', detail: '记录左侧腰窝痛感、麻木/放射痛、久坐和晨起反应' }
         ],
-        requirement: '保护性启动：全程腰骶中立，RPE 4-5。任何放射痛、麻木，或痛感升到 3/10 以上就停止。'
+        requirement: '今天目标是让症状降下来。若痛感超过 3/10、出现放射痛或麻木，停止所有训练并考虑就医评估。'
       },
       {
         day: '周二',
-        theme: '上肢器械支撑',
-        subtitle: '减少腰背代偿',
-        intensity: 'medium',
+        theme: '停训复测',
+        subtitle: '左侧腰窝疼痛后第 2 天',
+        intensity: 'low',
         exercises: [
-          { icon: '🪑', name: '坐姿划船机 3 组 × 10 次', detail: '胸口打开，身体不后仰，肩胛向后下方收' },
-          { icon: '⬇️', name: '高位下拉 2 组 × 10 次', detail: '拉到锁骨前，避免耸肩和腰部反弓' },
-          { icon: '🤲', name: '器械胸推 2 组 × 10 次', detail: '背部贴靠垫，重量保留 3 次余量' },
-          { icon: '↔️', name: '绳索抗旋转推 2 组 × 10 次/侧', detail: '小重量、慢推出，骨盆不跟着转' }
+          { icon: '⏸️', name: '继续停止正式训练', detail: '不做 dead bug、平板、负重走、冲刺和下肢力量' },
+          { icon: '🧘', name: '猫牛式 8-10 次', detail: '小幅度活动，不追求拉伸感' },
+          { icon: '🔄', name: '开书式或靠墙胸椎旋转 6 次/侧', detail: '目标是让胸椎动，不用腰去拧' },
+          { icon: '🫁', name: '90/90 收肋呼吸 3 分钟', detail: '呼气时下肋回收，避免挺胸顶腰' }
         ],
-        requirement: '今天练上肢但不让腰顶上来：所有动作都用座椅或绳索支撑，呼吸顺畅，不屏气硬撑。'
+        requirement: '只有当今天和明早痛感都稳定在 0-2/10，周三才恢复健身房。若加重，继续休息或就医。'
       },
       {
         day: '周三',
-        theme: '低冲击有氧恢复',
-        subtitle: '只做稳态',
-        intensity: 'low',
+        theme: '上背收肋 + 短爬坡',
+        subtitle: '恢复进馆第 1 天',
+        intensity: 'medium',
         exercises: [
-          { icon: '🚲', name: '靠背车 20-25 分钟', detail: 'RPE 4，能完整说句子，全程匀速' },
-          { icon: '🧘', name: '髋屈肌与臀肌拉伸 5 分钟', detail: '轻柔拉伸，不做腰部大幅度扭转' },
-          { icon: '🫁', name: '坐姿呼吸放松 2 分钟', detail: '吸气扩张肋骨，呼气让腰背自然放松' }
+          { icon: '⬇️', name: '高位下拉 2 组 × 12 次', detail: '不耸肩、不后仰，肋骨不要顶出去' },
+          { icon: '🪑', name: '坐姿划船机 2 组 × 12 次', detail: '肩胛向后下收，身体不摆动' },
+          { icon: '🪽', name: '反向飞鸟机 2 组 × 12 次', detail: '轻重量练上背，改善圆肩和胸椎控制' },
+          { icon: '🪢', name: '绳索面拉 2 组 × 12 次', detail: '拉向鼻眼高度，脖子放松' },
+          { icon: '⛰️', name: '无负重坡度走 8-12 分钟', detail: '坡度 3-5%，RPE 3-4，能完整说话' }
         ],
-        requirement: '恢复日的目标是降紧张，不是刷消耗。腰骶有压迫感时，把骑车缩短到 10-15 分钟也算完成。'
+        requirement: '这是恢复日，不是练爆日。器械重量保留 3 次余量；坡度走只做短剂量，腰窝有反应就改平地或结束。'
       },
       {
         day: '周四',
-        theme: '下肢器械稳定',
-        subtitle: '臀腿发力重建',
+        theme: '臀腿器械 + 低坡热身',
+        subtitle: '让臀腿接管腰',
         intensity: 'medium',
         exercises: [
-          { icon: '🦵', name: '坐姿腿屈伸 2 组 × 12 次', detail: '轻到中等重量，膝盖轨迹稳定' },
-          { icon: '🔁', name: '坐姿腿弯举 2 组 × 12 次', detail: '慢放回，避免骨盆被重量带走' },
-          { icon: '🍑', name: '臀部后踢机 2 组 × 12 次/侧', detail: '小幅度，专注臀部发力，不塌腰' },
-          { icon: '↔️', name: '髋外展机 2 组 × 15 次', detail: '顶峰停 1 秒，腰背保持安静' }
+          { icon: '⛰️', name: '无负重坡度走 6-8 分钟', detail: '坡度 3-5%，只热身，不走到疲劳' },
+          { icon: '🔁', name: '坐姿腿弯举 3 组 × 12 次', detail: '重点练腘绳肌，骨盆不要被重量带走' },
+          { icon: '🦵', name: '腿举机 2-3 组 × 10 次', detail: '脚放略高，腰背贴稳靠垫，膝盖朝脚尖' },
+          { icon: '🍑', name: '臀推机或臀桥机 2 组 × 10 次', detail: '只找臀部发力，不要顶腰' },
+          { icon: '↔️', name: '坐姿髋外展机 2 组 × 15 次', detail: '练臀中肌，帮助骨盆稳定' }
         ],
-        requirement: '下肢日只追稳定发力：不做深幅度、不憋气、不用腰去补动作。结束后腰部应比训练前更松。'
+        requirement: '臀腿日可以练，但不能让左侧腰窝参与。每组最后有点吃力即可，不做到力竭，不憋气。'
       },
       {
         day: '周五',
-        theme: '温和稳态输出',
-        subtitle: '保留有氧底座',
+        theme: '登山心肺低剂量',
+        subtitle: '少有氧但不断专项',
         intensity: 'low',
         exercises: [
-          { icon: '🚲', name: '靠背车或椭圆机 25-30 分钟', detail: 'RPE 4-5，节奏平稳，不加速度段' },
-          { icon: '🧘', name: '小腿、臀肌、胸椎放松 5 分钟', detail: '只做到轻微牵拉感，不追求极限幅度' }
+          { icon: '⛰️', name: '无负重坡度走 15-20 分钟', detail: '坡度 5-8%，RPE 4，能说话但微喘' },
+          { icon: '🧍', name: '姿态检查', detail: '轻微前倾来自脚踝，不抓扶手，不挺胸顶腰' },
+          { icon: '🧘', name: '小腿、臀肌、髋屈肌放松 5 分钟', detail: '轻柔拉伸，不做腰部大幅度扭转' },
+          { icon: '🫁', name: '90/90 收肋呼吸 3 分钟', detail: '把坡度走后的肋骨和腰背降下来' }
         ],
-        requirement: '这是低冲击稳态日。能聊天、能稳定呼吸，腰骶没有被顶住的感觉，就是正确强度。'
+        requirement: '教练说少做有氧，所以今天只保留登山专项的最低有效剂量：不冲心率、不加背包、不把时间堆长。'
       },
       {
         day: '周六',
-        theme: '全身器械整合',
-        subtitle: '留足休息',
+        theme: '全身轻器械 + 爬坡',
+        subtitle: '增肌和爬山兼顾',
         intensity: 'medium',
         exercises: [
-          { icon: '🚲', name: '靠背车热身 6 分钟', detail: '低阻力，让髋和膝先热起来' },
-          { icon: '🦵', name: '腿举机 2 组 × 10 次', detail: '比周一略重也可以，但动作必须更稳' },
-          { icon: '🪑', name: '坐姿划船机 2 组 × 10 次', detail: '躯干固定，不用后仰借力' },
-          { icon: '🤲', name: '器械胸推 2 组 × 10 次', detail: '背贴靠垫，肩不耸' },
-          { icon: '↔️', name: '髋外展机 2 组 × 12 次', detail: '组间休息 60-90 秒，不连续冲心率' }
+          { icon: '🦵', name: '腿举机 2 组 × 12 次', detail: '动作稳定，腰不顶起' },
+          { icon: '🦿', name: '坐姿腿屈伸 2 组 × 12 次', detail: '轻重量，不锁死膝盖' },
+          { icon: '⬇️', name: '高位下拉 2 组 × 12 次', detail: '肩颈放松，肋骨不外翻' },
+          { icon: '🪑', name: '坐姿划船 2 组 × 12 次', detail: '躯干固定，不用后仰借力' },
+          { icon: '⛰️', name: '无负重坡度走 10-15 分钟', detail: '坡度 4-6%，作为登山专项收尾' }
         ],
-        requirement: '全身整合日保持中等强度：每组都留余量，组间休息完整。宁可少做一组，也不为了出汗牺牲腰骶稳定。'
+        requirement: '全身日不追消耗，目的是给增肌和爬山都一点刺激。任何动作让腰窝更明显，就删掉那一项。'
       },
       {
         day: '周日',
-        theme: '卸载与检查',
-        subtitle: '恢复优先',
+        theme: '恢复复盘',
+        subtitle: '决定下周是否加量',
         intensity: 'low',
         exercises: [
-          { icon: '🚲', name: '靠背车 10-15 分钟', detail: '轻松转动，感觉僵硬就缩短时间' },
-          { icon: '🧘', name: '髋屈肌、臀肌、腘绳肌拉伸', detail: '每个位置 30-45 秒，保持自然呼吸' },
-          { icon: '📝', name: '腰骶状态记录 2 分钟', detail: '记录痛感、麻木、久坐后反应和第二天晨起感觉' }
+          { icon: '🚶', name: '平地或低坡轻松走 10-15 分钟', detail: '坡度 0-3%，只做恢复，不训练心肺' },
+          { icon: '🔄', name: '猫牛式 + 开书式', detail: '各 6-8 次，恢复胸椎活动' },
+          { icon: '🫁', name: '90/90 收肋呼吸 3-5 分钟', detail: '处理肋骨上翻和腰椎代偿' },
+          { icon: '📝', name: '周复盘', detail: '记录腰窝痛感、坡度走耐受、器械动作是否腰酸' }
         ],
-        requirement: '周日不加量，只观察恢复。若本周有两次以上痛感超过 3/10，下周所有重量降一档。'
+        requirement: '如果本周训练后没有超过 3/10 的疼痛，也没有第二天加重，下周才考虑给坡度走加 5 分钟。'
       }
     ];
 
     const GUIDE = [
-      { title: '⏸️ 暂停清单', text: '本阶段暂停 dead bug、平板支撑、负重走、农夫行走、跳绳、冲刺间歇和高强度有氧。先让腰骶区域稳定下来。' },
-      { title: '🪑 器械优先', text: '优先选择有靠背、有胸垫、轨迹固定的器械。每个动作都要让腰背有支撑，避免用腰去完成本该由臀腿或背阔肌完成的动作。' },
-      { title: '📏 痛感规则', text: '训练中可接受 0-2/10 的轻微不适；达到 3/10、出现放射痛、麻木、刺痛或动作后明显加重，就立刻停止当天训练。' },
-      { title: '🌬️ 呼吸与用力', text: '所有组都保持自然呼吸，不屏气。发力时轻轻收紧下腹，目标是稳定，不是把核心练到疲劳。' },
-      { title: '📈 进阶节奏', text: '连续两周没有加重，再考虑每个器械增加 1 档重量或每组增加 2 次。只改一个变量，不同时加重量和次数。' }
+      { title: '⛰️ 爬坡不是被删除', text: '你要爬山，所以坡度走必须保留。调整的是剂量：无负重、短到中等时长、能说话、不冲心率。' },
+      { title: '⏸️ 先停两天', text: 'dead bug 后左侧腰窝疼了一天，本周前两天先停止正式训练。疼痛稳定后再恢复器械和短坡度走。' },
+      { title: '🪑 器械是主线', text: '重点练臀腿、背和上背：腿弯举、腿举、臀推、髋外展、下拉、划船、反向飞鸟。目标是增肌和减少腰代偿。' },
+      { title: '🫁 收肋优先', text: '颈椎和胸椎曲度偏直、肋骨上翻时，不要靠挺胸硬凹姿态。每次训练都用 90/90 呼吸把下肋收回来。' },
+      { title: '🚫 暂停清单', text: '暂时不做标准 dead bug、长时间平板、仰卧举腿、俄式转体、山羊挺身、大重量硬拉/自由深蹲、负重走和高强度有氧。' },
+      { title: '📈 进阶顺序', text: '坡度走先加时长，再加坡度，最后才加速度；器械先加次数，再加重量。腰窝疼痛超过 3/10 就退回上一档。' }
     ];
 
     const WEEKDAYS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];

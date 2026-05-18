@@ -1,7 +1,7 @@
 {
-  "name": "腰骶保护训练提醒",
-  "short_name": "腰骶训练",
-  "description": "每日30分钟腰骶保护训练计划",
+  "name": "登山器械训练提醒",
+  "short_name": "登山训练",
+  "description": "登山心肺与健身房器械训练计划",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f8f9fa",
