@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="每日运动">
+  <meta name="apple-mobile-web-app-title" content="腰骶保护训练">
   <meta name="theme-color" content="#2d3436">
-  <title>每日运动提醒</title>
+  <title>腰骶保护训练提醒</title>
   <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" href="./icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,10 +215,6 @@
       background: #fdcb6e;
     }
 
-    .intensity-dot.high {
-      background: #e17055;
-    }
-
     /* Footer */
     .footer {
       text-align: center;
@@ -310,95 +306,106 @@
 
   <div class="content" id="content"></div>
 
-  <div class="footer">心肺高海拔训练 · 坚持就是胜利</div>
+  <div class="footer">腰骶保护期 · 器械优先 · 稳定胜过强度</div>
 
   <script>
     const PLAN = [
       {
         day: '周一',
-        theme: 'Zone 2 基础有氧',
-        subtitle: '压低基础心率',
+        theme: '腰骶保护启动',
+        subtitle: '低冲击唤醒',
         intensity: 'low',
         exercises: [
-          { icon: '🚴', name: '动感单车 30-45 分钟', detail: '心率控制在 120-130，保持匀速骑行' }
+          { icon: '🚲', name: '靠背车或动感单车 8 分钟', detail: '低阻力热身，骨盆稳定，不追心率' },
+          { icon: '🦵', name: '腿举机 2 组 × 12 次', detail: '轻重量、短行程，腰背贴稳靠垫' },
+          { icon: '🔁', name: '坐姿腿弯举 2 组 × 12 次', detail: '动作慢，避免借力挺腰' },
+          { icon: '🧘', name: '髋外展机 2 组 × 12 次', detail: '唤醒臀中肌，组间休息 60-90 秒' }
         ],
-        requirement: '压低基础心率：心率控制在 120-130。解决平时走路就 100+ 的问题，夯实有氧底座。'
+        requirement: '保护性启动：全程腰骶中立，RPE 4-5。任何放射痛、麻木，或痛感升到 3/10 以上就停止。'
       },
       {
         day: '周二',
-        theme: '负重与核心激活',
-        subtitle: '模拟负重登山',
+        theme: '上肢器械支撑',
+        subtitle: '减少腰背代偿',
         intensity: 'medium',
         exercises: [
-          { icon: '🎒', name: '7kg 负重快走 20 分钟', detail: '全程使用腹式呼吸，背负 7kg 快走' },
-          { icon: '🔄', name: '组合练习', detail: '壶铃高脚杯深蹲 + 平板支撑，利用核心激活减少后背负担' }
+          { icon: '🪑', name: '坐姿划船机 3 组 × 10 次', detail: '胸口打开，身体不后仰，肩胛向后下方收' },
+          { icon: '⬇️', name: '高位下拉 2 组 × 10 次', detail: '拉到锁骨前，避免耸肩和腰部反弓' },
+          { icon: '🤲', name: '器械胸推 2 组 × 10 次', detail: '背部贴靠垫，重量保留 3 次余量' },
+          { icon: '↔️', name: '绳索抗旋转推 2 组 × 10 次/侧', detail: '小重量、慢推出，骨盆不跟着转' }
         ],
-        requirement: '模拟负重登山：负重走时全程使用腹式呼吸。利用核心激活（平板支撑）减少后背负担。'
+        requirement: '今天练上肢但不让腰顶上来：所有动作都用座椅或绳索支撑，呼吸顺畅，不屏气硬撑。'
       },
       {
         day: '周三',
-        theme: '4×4 引擎扩容日',
-        subtitle: '冲击最大摄氧量',
-        intensity: 'high',
+        theme: '低冲击有氧恢复',
+        subtitle: '只做稳态',
+        intensity: 'low',
         exercises: [
-          { icon: '🔥', name: '动感单车间歇 × 4 组', detail: '4 分钟高阻力冲刺（心率 160+）+ 3 分钟轻踩恢复' }
+          { icon: '🚲', name: '靠背车 20-25 分钟', detail: 'RPE 4，能完整说句子，全程匀速' },
+          { icon: '🧘', name: '髋屈肌与臀肌拉伸 5 分钟', detail: '轻柔拉伸，不做腰部大幅度扭转' },
+          { icon: '🫁', name: '坐姿呼吸放松 2 分钟', detail: '吸气扩张肋骨，呼气让腰背自然放松' }
         ],
-        requirement: '冲击摄氧上限：4min 高阻力冲刺（心率 160+）+ 3min 轻踩恢复，重复 4 组。利用恢复快的优势。'
+        requirement: '恢复日的目标是降紧张，不是刷消耗。腰骶有压迫感时，把骑车缩短到 10-15 分钟也算完成。'
       },
       {
         day: '周四',
-        theme: '综合代谢与耐力',
-        subtitle: '抗乳酸训练',
-        intensity: 'high',
+        theme: '下肢器械稳定',
+        subtitle: '臀腿发力重建',
+        intensity: 'medium',
         exercises: [
-          { icon: '🏋️', name: '农夫行走 1 分钟', detail: '双手各提 6kg 壶铃，室内来回稳步走' },
-          { icon: '🦵', name: '壶铃高脚杯深蹲 15 次', detail: '双手抱 6kg 壶铃' },
-          { icon: '💪', name: '平板支撑 45 秒', detail: '' },
-          { icon: '🚶', name: '原地踏步 1 分钟', detail: '' }
+          { icon: '🦵', name: '坐姿腿屈伸 2 组 × 12 次', detail: '轻到中等重量，膝盖轨迹稳定' },
+          { icon: '🔁', name: '坐姿腿弯举 2 组 × 12 次', detail: '慢放回，避免骨盆被重量带走' },
+          { icon: '🍑', name: '臀部后踢机 2 组 × 12 次/侧', detail: '小幅度，专注臀部发力，不塌腰' },
+          { icon: '↔️', name: '髋外展机 2 组 × 15 次', detail: '顶峰停 1 秒，腰背保持安静' }
         ],
-        requirement: '抗乳酸训练：在深蹲和农夫行走间歇，不休息直接进入下一步，模拟高原连续行走的疲劳感。',
-        isCircuit: true
+        requirement: '下肢日只追稳定发力：不做深幅度、不憋气、不用腰去补动作。结束后腰部应比训练前更松。'
       },
       {
         day: '周五',
-        theme: 'Zone 2 稳态输出',
-        subtitle: '呼吸节奏固化',
+        theme: '温和稳态输出',
+        subtitle: '保留有氧底座',
         intensity: 'low',
         exercises: [
-          { icon: '🚴', name: '动感单车 30-45 分钟', detail: '稳定中等强度输出，练习"吸 2 呼 4"呼吸节奏' }
+          { icon: '🚲', name: '靠背车或椭圆机 25-30 分钟', detail: 'RPE 4-5，节奏平稳，不加速度段' },
+          { icon: '🧘', name: '小腿、臀肌、胸椎放松 5 分钟', detail: '只做到轻微牵拉感，不追求极限幅度' }
         ],
-        requirement: '呼吸节奏固化：在稳定的中等强度下，练习"吸 2 呼 4"节奏，把技巧变成肌肉记忆。'
+        requirement: '这是低冲击稳态日。能聊天、能稳定呼吸，腰骶没有被顶住的感觉，就是正确强度。'
       },
       {
         day: '周六',
-        theme: '模拟实战与强骨',
-        subtitle: '坡度适应',
+        theme: '全身器械整合',
+        subtitle: '留足休息',
         intensity: 'medium',
         exercises: [
-          { icon: '🎒', name: '7kg 负重走 20 分钟', detail: '条件允许改为爬坡' },
-          { icon: '🔄', name: '组合练习', detail: '壶铃高脚杯深蹲 + 平板支撑，组间原地踏步' }
+          { icon: '🚲', name: '靠背车热身 6 分钟', detail: '低阻力，让髋和膝先热起来' },
+          { icon: '🦵', name: '腿举机 2 组 × 10 次', detail: '比周一略重也可以，但动作必须更稳' },
+          { icon: '🪑', name: '坐姿划船机 2 组 × 10 次', detail: '躯干固定，不用后仰借力' },
+          { icon: '🤲', name: '器械胸推 2 组 × 10 次', detail: '背贴靠垫，肩不耸' },
+          { icon: '↔️', name: '髋外展机 2 组 × 12 次', detail: '组间休息 60-90 秒，不连续冲心率' }
         ],
-        requirement: '坡度适应：如果条件允许，将负重走改为爬坡。心率飙到 160 后，停下测试 5 分钟内能否恢复。'
+        requirement: '全身整合日保持中等强度：每组都留余量，组间休息完整。宁可少做一组，也不为了出汗牺牲腰骶稳定。'
       },
       {
         day: '周日',
-        theme: '动态恢复与拉伸',
-        subtitle: '肺部减压',
+        theme: '卸载与检查',
+        subtitle: '恢复优先',
         intensity: 'low',
         exercises: [
-          { icon: '🚴', name: '动感单车 15 分钟', detail: '轻松骑行放松' },
-          { icon: '💪', name: '平板支撑 4 组 × 1 分钟', detail: '组间拉伸背部，强化核心' }
+          { icon: '🚲', name: '靠背车 10-15 分钟', detail: '轻松转动，感觉僵硬就缩短时间' },
+          { icon: '🧘', name: '髋屈肌、臀肌、腘绳肌拉伸', detail: '每个位置 30-45 秒，保持自然呼吸' },
+          { icon: '📝', name: '腰骶状态记录 2 分钟', detail: '记录痛感、麻木、久坐后反应和第二天晨起感觉' }
         ],
-        requirement: '肺部减压：重点通过平板支撑强化核心，减轻在高原因为呼吸急促导致的胸廓疲劳。'
+        requirement: '周日不加量，只观察恢复。若本周有两次以上痛感超过 3/10，下周所有重量降一档。'
       }
     ];
 
     const GUIDE = [
-      { title: '🫁 腹式呼吸是核心', text: '负重走和平板支撑时全程使用腹式呼吸。这是高原适应的基础，务必形成肌肉记忆。' },
-      { title: '❤️ 心率是指南针', text: 'Zone 2 日控制 120-130，间歇日冲刺 160+。没有心率表时，Zone 2 = 能说话不能唱歌。' },
-      { title: '🔥 4×4 间歇别打折', text: '周三的 4 分钟冲刺必须全力，这是拉升最大摄氧量的关键训练，3 分钟恢复要踩到底。' },
-      { title: '🏔️ 恢复能力 = 高原能力', text: '周六做心率恢复测试：冲到 160 后停下，5 分钟内能降到 100 以下说明心肺进步了。' },
-      { title: '🚴 加班保底方案', text: '太累做不了复杂训练？直接 30-45 分钟动感单车 Zone 2，有氧底座是一切的基础。' }
+      { title: '⏸️ 暂停清单', text: '本阶段暂停 dead bug、平板支撑、负重走、农夫行走、跳绳、冲刺间歇和高强度有氧。先让腰骶区域稳定下来。' },
+      { title: '🪑 器械优先', text: '优先选择有靠背、有胸垫、轨迹固定的器械。每个动作都要让腰背有支撑，避免用腰去完成本该由臀腿或背阔肌完成的动作。' },
+      { title: '📏 痛感规则', text: '训练中可接受 0-2/10 的轻微不适；达到 3/10、出现放射痛、麻木、刺痛或动作后明显加重，就立刻停止当天训练。' },
+      { title: '🌬️ 呼吸与用力', text: '所有组都保持自然呼吸，不屏气。发力时轻轻收紧下腹，目标是稳定，不是把核心练到疲劳。' },
+      { title: '📈 进阶节奏', text: '连续两周没有加重，再考虑每个器械增加 1 档重量或每组增加 2 次。只改一个变量，不同时加重量和次数。' }
     ];
 
     const WEEKDAYS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
@@ -452,14 +459,14 @@
 
       const content = document.getElementById('content');
 
-      const intensityClass = plan.intensity === 'high' ? 'high' : plan.intensity === 'medium' ? 'medium' : '';
-      const intensityLabel = plan.intensity === 'high' ? '高强度' : plan.intensity === 'medium' ? '中等强度' : '中低强度';
+      const intensityClass = plan.intensity === 'medium' ? 'medium' : '';
+      const intensityLabel = plan.intensity === 'medium' ? '中等保护强度' : '低冲击强度';
 
       let html = '';
 
       // Exercises card
       html += `<div class="card" style="animation-delay: 0s">`;
-      html += `<div class="card-label">${plan.isCircuit ? '循环训练 · 不间断重复至 30 分钟' : '训练项目'}</div>`;
+      html += `<div class="card-label">训练项目</div>`;
       plan.exercises.forEach(ex => {
         html += `
       <div class="exercise-item">
@@ -509,7 +516,18 @@
     init();
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js').catch(() => { });
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+          .then(registration => registration.update())
+          .catch(() => { });
+      });
     }
   </script>
 </body>

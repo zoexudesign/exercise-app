@@ -1,7 +1,7 @@
 {
-  "name": "每日运动提醒",
-  "short_name": "每日运动",
-  "description": "每日30分钟运动计划",
+  "name": "腰骶保护训练提醒",
+  "short_name": "腰骶训练",
+  "description": "每日30分钟腰骶保护训练计划",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f8f9fa",
