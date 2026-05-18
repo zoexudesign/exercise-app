@@ -1,4 +1,4 @@
-const CACHE_NAME = 'exercise-v5';
+const CACHE_NAME = 'exercise-v6';
 const ASSETS = [
     './',
     './index.html',
